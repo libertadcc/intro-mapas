@@ -1,5 +1,6 @@
-require(["esri/Map", "esri/views/MapView", "esri/Graphic", "esri/layers/GraphicsLayer", "esri/widgets/Zoom", "esri/widgets/Measurement"], 
-  function(Map, MapView, Graphic, GraphicsLayer, Zoom, Measurement) {
+require(["esri/Map", "esri/views/MapView", "esri/Graphic", "esri/layers/GraphicsLayer", "esri/widgets/Zoom", "esri/widgets/Measurement", 
+"esri/widgets/ScaleBar", "esri/widgets/Search"], 
+  function(Map, MapView, Graphic, GraphicsLayer, Zoom, Measurement, ScaleBar, Search) {
   map = new Map ({
     basemap: "streets-navigation-vector"
   });
@@ -45,11 +46,27 @@ require(["esri/Map", "esri/views/MapView", "esri/Graphic", "esri/layers/Graphics
     view: view
   });
 
-  const measurement = new Measurement({
+  // Widget measurement ?
+  // measurement = new Measurement({
+  //   view: view,
+  //   activeTool: "distance",
+  // });
+  // view.ui.add(measurement, "bottom-right");
+
+  var scaleBar = new ScaleBar({
     view: view,
-    activeTool: "distance"
+    unit: "metric"
   });
-  view.ui.add(measurement, "top-right");
+
+  view.ui.add(scaleBar, {
+    position: "bottom-left"
+  });
+
+  var search = new Search({
+    view: view
+  });
+  
+  view.ui.add(search, "top-right");
 
   map.add(graphicLayer);
 });
