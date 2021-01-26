@@ -42,6 +42,8 @@ require(["esri/Map", "esri/views/MapView", "esri/Graphic", "esri/layers/Graphics
 
   graphicLayer.add(pointGraphic);
   
+  map.add(graphicLayer);
+  
   var zoomWidget = new Zoom({
     view: view
   });
@@ -61,5 +63,5 @@ require(["esri/Map", "esri/views/MapView", "esri/Graphic", "esri/layers/Graphics
   
   view.ui.add(search, "top-right");
 
-  map.add(graphicLayer);
+ 
 });
