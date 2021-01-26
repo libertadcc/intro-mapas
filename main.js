@@ -46,13 +46,6 @@ require(["esri/Map", "esri/views/MapView", "esri/Graphic", "esri/layers/Graphics
     view: view
   });
 
-  // Widget measurement ?
-  // measurement = new Measurement({
-  //   view: view,
-  //   activeTool: "distance",
-  // });
-  // view.ui.add(measurement, "bottom-right");
-
   var scaleBar = new ScaleBar({
     view: view,
     unit: "metric"
